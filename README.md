@@ -6,8 +6,8 @@ This is a simple "Hello, World!" REST API built using Adonis.js. It serves as a 
 
 Before you begin, ensure you have the following installed:
 
-- Node.js
-- npm (Node Package Manager)
+-   Node.js
+-   npm (Node Package Manager)
 
 ## Installation
 
@@ -46,6 +46,6 @@ You should see the response:
 
 ```json
 {
-  "message": "Hello, World!"
+    "message": "Hello, World!"
 }
 ```
