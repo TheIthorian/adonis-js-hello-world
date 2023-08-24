@@ -8,8 +8,14 @@ export default class NotesController {
         await auth.use('api').authenticate()
 
         const notes = await Database.from('notes')
-            .select('*')
-            .where('user', auth.use('api').user?.id!)
+            .select({
+                id: 'notes.id',
+                message: 'notes.message',
+                createdAt: 'notes.created_at',
+                updatedAt: 'notes.updated_at',
+            })
+            .where('user_id', auth.use('api').user!.id)
+
         response.json({ data: notes })
     }
 
