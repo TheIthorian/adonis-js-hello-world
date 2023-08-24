@@ -24,4 +24,12 @@ Route.get('/', async () => {
     return { hello: 'world' }
 })
 
-Route.resource('notes', 'NotesController').apiOnly()
+Route.post('register', 'AuthController.register')
+Route.post('login', 'AuthController.login')
+Route.post('logout', 'AuthController.logout').middleware('auth')
+
+Route.group(() => {
+    Route.resource('notes', 'NotesController').apiOnly()
+})
+    .prefix('/api')
+    .middleware('auth')
