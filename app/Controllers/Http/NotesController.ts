@@ -1,20 +1,14 @@
 import { schema } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Database from '@ioc:Adonis/Lucid/Database'
 import Note from 'App/Models/Note'
 
 export default class NotesController {
     public async index({ response, auth }: HttpContextContract) {
         await auth.use('api').authenticate()
 
-        const notes = await Database.from('notes')
-            .select({
-                id: 'notes.id',
-                message: 'notes.message',
-                createdAt: 'notes.created_at',
-                updatedAt: 'notes.updated_at',
-            })
-            .where('user_id', auth.use('api').user!.id)
+        const notes = await Note.query()
+            .select('id', 'message', 'createdAt', 'updatedAt')
+            .where('userId', auth.use('api').user!.id)
 
         response.json({ data: notes })
     }
