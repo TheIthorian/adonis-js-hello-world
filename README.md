@@ -17,7 +17,7 @@ cd api
 npm run build
 ```
 
-3. Copy `.env` to `build/.env`. Add database info
+3. Copy `.env` to `build/.env`. Add database info. use `DB_CONNECTION=pg` for postgres
 
 4. Run migrations
 
