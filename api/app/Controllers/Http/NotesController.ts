@@ -9,6 +9,7 @@ export default class NotesController {
         const notes = await Note.query()
             .select('id', 'message', 'createdAt', 'updatedAt')
             .where('userId', auth.use('api').user!.id)
+            .orderBy('createdAt', 'desc')
 
         response.json({ data: notes })
     }
