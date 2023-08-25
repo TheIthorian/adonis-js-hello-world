@@ -1,0 +1,19 @@
+{
+    "name": "notes",
+    "version": "0.1.0",
+    "private": true,
+    "prettier": {
+        "trailingComma": "es5",
+        "semi": false,
+        "singleQuote": true,
+        "useTabs": false,
+        "quoteProps": "consistent",
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "printWidth": 100,
+        "tabWidth": 4
+    },
+    "dependencies": {
+        "prettier": "^3.0.2"
+    }
+}

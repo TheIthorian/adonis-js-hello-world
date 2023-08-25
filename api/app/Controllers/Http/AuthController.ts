@@ -39,4 +39,10 @@ export default class AuthController {
         await auth.logout()
         response.json({ message: 'User logged out successfully' })
     }
+
+    public async me({ response, auth }: HttpContextContract) {
+        await auth.use('api').authenticate()
+
+        response.json({ data: auth.user })
+    }
 }

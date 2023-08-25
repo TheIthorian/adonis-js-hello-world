@@ -27,6 +27,7 @@ Route.get('/', async () => {
 Route.post('register', 'AuthController.register')
 Route.post('login', 'AuthController.login')
 Route.post('logout', 'AuthController.logout').middleware('auth')
+Route.get('me', 'AuthController.me').middleware('auth')
 
 Route.group(() => {
     Route.resource('notes', 'NotesController').apiOnly()
